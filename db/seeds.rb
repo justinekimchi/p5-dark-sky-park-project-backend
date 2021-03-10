@@ -1,7 +1,7 @@
 Visitor.destroy_all
 DarkSkyPark.destroy_all
 BucketlistLocation.destroy_all
-Comment.destroy_all
+# Comment.destroy_all
 
 
 
@@ -363,20 +363,20 @@ dark_sky_parks = [
 dark_sky_parks.each { |park| DarkSkyPark.create!(park) }
 
 bucketlist_locations = [
-    { visitor: Visitor.first, dark_sky_park: DarkSkyPark.last },
-    { visitor: Visitor.first, dark_sky_park: DarkSkyPark.third },
-    { visitor: Visitor.first, dark_sky_park: DarkSkyPark.all[19] },
-    { visitor: Visitor.second, dark_sky_park: DarkSkyPark.all[20] },
-    { visitor: Visitor.second, dark_sky_park: DarkSkyPark.all[11] },
-    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[15] },
-    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[22] },
-    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[28] },
-    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[20] },
-    { visitor: Visitor.fourth, dark_sky_park: DarkSkyPark.all[9] },
-    { visitor: Visitor.fourth, dark_sky_park: DarkSkyPark.last },
-    { visitor: Visitor.fourth, dark_sky_park: DarkSkyPark.all[16] },
-    { visitor: Visitor.fifth, dark_sky_park: DarkSkyPark.all[5] },
-    { visitor: Visitor.fifth, dark_sky_park: DarkSkyPark.all[19] }
+    { visitor: Visitor.first, dark_sky_park: DarkSkyPark.last, visited:false },
+    { visitor: Visitor.first, dark_sky_park: DarkSkyPark.third, visited:false },
+    { visitor: Visitor.first, dark_sky_park: DarkSkyPark.all[19] , visited:false },
+    { visitor: Visitor.second, dark_sky_park: DarkSkyPark.all[20], visited:false  },
+    { visitor: Visitor.second, dark_sky_park: DarkSkyPark.all[11], visited:false  },
+    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[15], visited:false  },
+    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[22] , visited:false },
+    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[28], visited:false  },
+    { visitor: Visitor.third, dark_sky_park: DarkSkyPark.all[20], visited:false  },
+    { visitor: Visitor.fourth, dark_sky_park: DarkSkyPark.all[9], visited:false  },
+    { visitor: Visitor.fourth, dark_sky_park: DarkSkyPark.last, visited:false  },
+    { visitor: Visitor.fourth, dark_sky_park: DarkSkyPark.all[16], visited:false  },
+    { visitor: Visitor.fifth, dark_sky_park: DarkSkyPark.all[5], visited:false  },
+    { visitor: Visitor.fifth, dark_sky_park: DarkSkyPark.all[19], visited:false  }
 ]
 bucketlist_locations.each { |bucket| BucketlistLocation.create!(bucket) }
 
@@ -409,39 +409,39 @@ bucketlist_locations.each { |bucket| BucketlistLocation.create!(bucket) }
 
 # likes.each { |like| Like.create!(like) }
 
-comments = [
-    {
-        post: 'Hey is this place safe from coyotes at night?',
-        visitor: Visitor.second,
-        dark_sky_park: DarkSkyPark.first
-    },
-    {
-        post:
-            'Does anyone know if this park charges to camp out with a trailer?',
-        visitor: Visitor.last,
-        dark_sky_park: DarkSkyPark.all[8]
-    },
-    {
-        post:
-            'I would love to know if a sweater is needed during the fall if I visit this park.',
-        visitor: Visitor.third,
-        dark_sky_park: DarkSkyPark.all[11]
-    },
-    {
-        post: 'Any cottages recommended nearby??',
-        visitor: Visitor.fourth,
-        dark_sky_park: DarkSkyPark.all[11]
-    },
-    {
-        post: 'I want to go here soooo bad!!! It looks amazing!',
-        visitor: Visitor.fifth,
-        dark_sky_park: DarkSkyPark.last
-    },
-    {
-        post: 'This is near where I live!! SO COOL!!!?',
-        visitor: Visitor.fifth,
-        dark_sky_park: DarkSkyPark.all[14]
-    }
-]
+# comments = [
+#     {
+#         post: 'Hey is this place safe from coyotes at night?',
+#         visitor: Visitor.second,
+#         dark_sky_park: DarkSkyPark.first
+#     },
+#     {
+#         post:
+#             'Does anyone know if this park charges to camp out with a trailer?',
+#         visitor: Visitor.last,
+#         dark_sky_park: DarkSkyPark.all[8]
+#     },
+#     {
+#         post:
+#             'I would love to know if a sweater is needed during the fall if I visit this park.',
+#         visitor: Visitor.third,
+#         dark_sky_park: DarkSkyPark.all[11]
+#     },
+#     {
+#         post: 'Any cottages recommended nearby??',
+#         visitor: Visitor.fourth,
+#         dark_sky_park: DarkSkyPark.all[11]
+#     },
+#     {
+#         post: 'I want to go here soooo bad!!! It looks amazing!',
+#         visitor: Visitor.fifth,
+#         dark_sky_park: DarkSkyPark.last
+#     },
+#     {
+#         post: 'This is near where I live!! SO COOL!!!?',
+#         visitor: Visitor.fifth,
+#         dark_sky_park: DarkSkyPark.all[14]
+#     }
+# ]
 
-comments.each { |comment| Comment.create!(comment) }
+# comments.each { |comment| Comment.create!(comment) }

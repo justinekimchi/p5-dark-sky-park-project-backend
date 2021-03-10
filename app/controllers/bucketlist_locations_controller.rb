@@ -12,8 +12,10 @@ class BucketlistLocationsController < ApplicationController
 
     def update
         @bucketlist_location = BucketlistLocation.find(params[:id])
-        @bucketlist_location.update(fetch_params)
-        render json: @bucketlist_locations
+        # @bucketlist_location.update(params)
+        @bucketlist_location.visited = !@bucketlist_location.visited
+        @bucketlist_location.save
+        render json: @bucketlist_location.visitor.as_json(include: {dark_sky_parks:{},bucketlist_locations:{}})
     end
 
     def destroy

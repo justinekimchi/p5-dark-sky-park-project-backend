@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_193916) do
+ActiveRecord::Schema.define(version: 2021_03_05_193423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,27 +23,12 @@ ActiveRecord::Schema.define(version: 2021_03_05_193916) do
     t.index ["visitor_id"], name: "index_bucketlist_locations_on_visitor_id"
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.text "post"
-    t.bigint "visitor_id", null: false
-    t.bigint "dark_sky_park_id", null: false
-    t.index ["dark_sky_park_id"], name: "index_comments_on_dark_sky_park_id"
-    t.index ["visitor_id"], name: "index_comments_on_visitor_id"
-  end
-
   create_table "dark_sky_parks", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "img_url"
     t.string "city"
     t.string "state"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.bigint "visitor_id", null: false
-    t.bigint "dark_sky_park_id", null: false
-    t.index ["dark_sky_park_id"], name: "index_likes_on_dark_sky_park_id"
-    t.index ["visitor_id"], name: "index_likes_on_visitor_id"
   end
 
   create_table "visitors", force: :cascade do |t|
@@ -53,8 +38,4 @@ ActiveRecord::Schema.define(version: 2021_03_05_193916) do
 
   add_foreign_key "bucketlist_locations", "dark_sky_parks"
   add_foreign_key "bucketlist_locations", "visitors"
-  add_foreign_key "comments", "dark_sky_parks"
-  add_foreign_key "comments", "visitors"
-  add_foreign_key "likes", "dark_sky_parks"
-  add_foreign_key "likes", "visitors"
 end
